@@ -31,16 +31,14 @@
             <div class="sidebar-content">
               <ul class="nav nav-secondary">
                 <li class="nav-item active">
-                  <a
-                    data-bs-toggle="collapse"
-                    href="#dashboard"
-                    class="collapsed"
+                  <router-link
+                    to="/"
                     aria-expanded="false"
                   >
                     <i class="fas fa-home"></i>
-                    <p>Ecommerce</p>
+                    <p>Home</p>
                     <span class="caret"></span>
-                  </a>
+                </router-link>
                 </li>
                 <li class="nav-section">
                   <span class="sidebar-mini-icon">
@@ -48,12 +46,12 @@
                   </span>
                 </li>
                 <li class="nav-item">
-                  <a data-bs-toggle="collapse" href="#base">
+                  <a data-bs-toggle="collapse" href="#Clients">
                     <i class="fas fa-layer-group"></i>
                     <p>Clients</p>
                     <span class="caret"></span>
                   </a>
-                  <div class="collapse" id="base">
+                  <div class="collapse" id="Clients">
                     <ul class="nav nav-collapse">
                       <li>
                         <router-link to="/clients">
@@ -65,11 +63,17 @@
                           <span class="sub-item">Add client</span>
                         </router-link>
                       </li>
-                      <li>
-                        <a href="components/panels.html">
-                          <span class="sub-item">Reporte</span>
-                        </a>
-                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a data-bs-toggle="collapse" href="#Products">
+                    <i class="fas fa-layer-group"></i>
+                    <p>Products</p>
+                    <span class="caret"></span>
+                  </a>
+                  <div class="collapse" id="Products">
+                    <ul class="nav nav-collapse">
                       <li>
                         <router-link to="/products">
                           <span class="sub-item">Product list</span>
