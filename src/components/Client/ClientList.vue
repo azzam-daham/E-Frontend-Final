@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/api/axios'
 import Swal from 'sweetalert2'
 
 export default{
@@ -96,7 +96,7 @@ export default{
             page: page,
             ...this.filters
           }
-            const clients = await axios.get('http://127.0.0.1:8000/api/clients', {params})
+            const clients = await axios.get('/clients', {params})
             this.clients = clients.data.data
             // console.log(clients.data.data);
             this.currentPage = clients.data.meta.current_page
@@ -111,11 +111,6 @@ export default{
           this.allClients(page)
         },
         async destroy(id){
-        // const confirmed = confirm('are you sure to delete this client?')
-        //   if(confirmed){
-        //     await axios.delete(`http://127.0.0.1:8000/api/client/${id}`)
-        //     this.allClients()
-        //   }
 
           const result = await Swal.fire({
             title: "Are you sure?",
@@ -127,7 +122,7 @@ export default{
             confirmButtonText: "Yes, delete it!"
           })
           if (result.isConfirmed){
-            await axios.delete(`http://127.0.0.1:8000/api/client/${id}`)
+            await axios.delete(`/client/${id}`)
             this.allClients()
             Swal.fire("Done!");
           }else{

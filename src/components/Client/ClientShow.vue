@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/api/axios'
     export default{
         data(){
             return{
@@ -37,7 +37,7 @@ import axios from 'axios'
         },
         methods:{
             async getClient(){
-                const response=await axios.get(`http://127.0.0.1:8000/api/clients/${this.$route.params.id}`)
+                const response=await axios.get(`/clients/${this.$route.params.id}`)
                 this.client = response.data.data
             }
         }

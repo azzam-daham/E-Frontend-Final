@@ -1,10 +1,9 @@
 <template>
-
-<div class="container">
-                <form @submit.prevent="addProduct">
+    <div class="container">
+          <form>
                   <div class="card">
                   <div class="card-header">
-                    <div class="card-title">Products>Add Product</div>
+                    <div class="card-title">Products>Update Product</div>
                     <div class="card-body">
                     <div class="row">
                       <div class="col-md-6 col-lg-4">
@@ -67,43 +66,43 @@
                   </div>
                 </div>
               </div>
-                </form>
+                </form>      
   </div>
 </template>
-
-<script>
-import axios from '@/api/axios'
-import Swal from 'sweetalert2'
-
-export default{
-  data(){
-    return{
-      product:{}
-    }
-  },
-  methods:{
-    async addProduct(){
-      let data = new FormData();
-      data.append("name", this.product.name);
-      data.append("price", this.product.price);
-      data.append("type", this.product.type);
-      data.append("discount", this.product.discount);
-      data.append("discrption", this.product.discrption);
-
-      await axios.post('/products', data)
-      Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your work has been saved",
-          showConfirmButton: false,
-          timer: 1500
-        });
-        this.$router.push("/products");
-    }
-  }
-}
-</script>
 
 <style>
 
 </style>
+
+<script>
+import axios from '@/api/axios'
+
+export default{
+    data(){
+        return {
+            product: {}
+        }
+    },
+    mounted(){
+        this.getProduct();
+    },
+    methods: {
+        async getProduct(){
+            let response = await axios.get(`/products/${this.$route.params.id}`);
+            this.product = response.data.date;
+            console.log(response.data.data);
+        },
+        async updateProduct(){
+            let formData = new FormData();
+            formData.append('name', this.product.name);
+            formData.append('price', this.product.price);
+            formData.append('type', this.product.type);
+            formData.append('discount', this.product.discount);
+            formData.append('discription', this.product.discription);
+            let response = await axios.patch(`/products/${this.$route.params.id}`);
+            this.product = response.data.data;
+
+        }
+    }
+}
+</script>
