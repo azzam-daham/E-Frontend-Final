@@ -34,7 +34,7 @@
                   </span>
                 </router-link>
 
-                <router-link>
+                <router-link :to="`/products/update/${product.id}`">
                   <span class="material-symbols-outlined">
                       update|
                   </span>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/api/axios'
 
 export default{
     data(){
@@ -67,7 +67,7 @@ export default{
     },
     methods:{
         async getProducts(){
-            const results=await axios.get('http://127.0.0.1:8000/api/products');
+            const results=await axios.get('/products');
             // console.log(results.data.data);
             this.products= results.data.data
         }

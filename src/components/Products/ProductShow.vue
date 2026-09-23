@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/api/axios'
 
 export default{
     data(){
@@ -44,7 +44,7 @@ export default{
     },
     methods:{
         async getProduct(){
-            const result= await axios.get(`http://127.0.0.1:8000/api/products/${this.$route.params.id}`)
+            const result= await axios.get(`/products/${this.$route.params.id}`)
             this.product=result.data.data;
             console.log(result.data.data);
         }

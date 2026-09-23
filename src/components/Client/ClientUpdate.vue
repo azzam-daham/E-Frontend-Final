@@ -30,7 +30,7 @@
   </template>
 
 <script>
-    import axios from 'axios';
+    import axios from '@/api/axios';
 
     export default{
         data(){
@@ -43,7 +43,7 @@
         },
         methods: {
             async getClient(){
-                let response = await axios.get(`http://127.0.0.1:8000/api/clients/${this.$route.params.id}`)
+                let response = await axios.get(`/clients/${this.$route.params.id}`)
                 this.client = response.data.data
             },
             async updateClient(){

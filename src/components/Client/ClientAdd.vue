@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/api/axios'
 import Swal from 'sweetalert2'
 
   export default{
@@ -80,7 +80,7 @@ import Swal from 'sweetalert2'
         data.append('address', this.client.address);
         data.append('mobile', this.client.mobile);
 
-        await axios.post('http://127.0.0.1:8000/api/clients', data)
+        await axios.post('/clients', data)
         Swal.fire({
           position: "top-end",
           icon: "success",

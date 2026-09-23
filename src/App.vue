@@ -1,5 +1,6 @@
 <template>
-  <div class="wrapper">
+  <router-view v-if="this.$route.meta.guard === false" />
+  <div v-else class="wrapper">
         <!-- Sidebar -->
         <div class="sidebar" data-background-color="dark">
           <div class="sidebar-logo">
@@ -465,7 +466,7 @@
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#">Account Setting</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Logout</a>
+                          <a class="dropdown-item" href="#" @click.prevent="logout">Logout</a>
                         </li>
                       </div>
                     </ul>
@@ -704,10 +705,16 @@
   </template>
 
 <script>
-
+import axios from 'axios'
 export default {
-  components: {
-    
-  },
+  methods:{
+    async logout(){
+      await axios.post('http://127.0.0.1:8000/api/logout', {}, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        })
+      localStorage.removeItem('token');
+      this.$router.push('/login');
+    }
+  }
 }
 </script>

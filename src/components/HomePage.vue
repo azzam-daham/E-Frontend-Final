@@ -100,7 +100,7 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from '@/api/axios'
 
 export default{
   data(){
@@ -110,7 +110,7 @@ export default{
   },
   methods:{
     async getStatistics(){
-      let response = await axios.get("http://127.0.0.1:8000/api/statistics");
+      let response = await axios.get("/statistics");
       console.log(response.data.data);
       this.statistics= response.data.data;
     }
