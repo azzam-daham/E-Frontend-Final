@@ -33,7 +33,7 @@
               <ul class="nav nav-secondary">
                 <li class="nav-item active">
                   <router-link
-                    to="/"
+                    to="/dashboard"
                     aria-expanded="false"
                   >
                     <i class="fas fa-home"></i>
@@ -55,12 +55,12 @@
                   <div class="collapse" id="Clients">
                     <ul class="nav nav-collapse">
                       <li>
-                        <router-link to="/clients">
+                        <router-link to="/dashboard/clients">
                           <span class="sub-item">Clients list</span>
                         </router-link>
                       </li>
                       <li>
-                        <router-link to="/clients/add">
+                        <router-link to="/dashboard/clients/add">
                           <span class="sub-item">Add client</span>
                         </router-link>
                       </li>
@@ -76,12 +76,12 @@
                   <div class="collapse" id="Products">
                     <ul class="nav nav-collapse">
                       <li>
-                        <router-link to="/products">
+                        <router-link to="/dashboard/products">
                           <span class="sub-item">Product list</span>
                         </router-link>
                       </li>
                       <li>
-                        <router-link to="/products/add">
+                        <router-link to="/dashboard/products/add">
                           <span class="sub-item">Add product</span>
                         </router-link>
                       </li>
