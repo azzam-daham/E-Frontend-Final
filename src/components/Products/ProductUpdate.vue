@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-          <form>
+    {{ product }}
+          <form @submit.prevent="updateProduct">
                   <div class="card">
                   <div class="card-header">
                     <div class="card-title">Products>Update Product</div>
@@ -60,7 +61,7 @@
                           ></textarea>
                           
                         </div>
-                        <button type="submit" class="btn btn-outline-success">Add</button>
+                        <button type="submit" class="btn btn-outline-success">Update</button>
                         </div>
                   </div>
                   </div>
@@ -89,18 +90,21 @@ export default{
     methods: {
         async getProduct(){
             let response = await axios.get(`/products/${this.$route.params.id}`);
-            this.product = response.data.date;
+            this.product = response.data.data;
             console.log(response.data.data);
         },
         async updateProduct(){
-            let formData = new FormData();
-            formData.append('name', this.product.name);
-            formData.append('price', this.product.price);
-            formData.append('type', this.product.type);
-            formData.append('discount', this.product.discount);
-            formData.append('discription', this.product.discription);
-            let response = await axios.patch(`/products/${this.$route.params.id}`);
+            let formData = {
+              name: this.product.name,
+              price: this.product.price,
+              discount: this.product.discount,
+              discrption: this.product.discrption,
+              type: this.product.type
+            };
+            
+            let response = await axios.put(`/products/${this.$route.params.id}`, formData);
             this.product = response.data.data;
+            this.$router.push('/dashboard/products')
 
         }
     }

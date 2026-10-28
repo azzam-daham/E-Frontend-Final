@@ -55,7 +55,7 @@
 
                 let response = await axios.put(`http://127.0.0.1:8000/api/client/${this.$route.params.id}`, this.client);
                 this.client = response.data.data
-                this.$router.push('/clients')
+                this.$router.push('/dashboard/clients')
 
             }
         }

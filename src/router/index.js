@@ -10,6 +10,7 @@ import AddProduct from '@/components/Products/AddProduct.vue'
 import AuthLogin from '@/components/Auth/AuthLogin.vue'
 import AuthRegister from '@/components/Auth/AuthRegister.vue'
 import ProductUpdate from '@/components/Products/ProductUpdate.vue'
+import LandingPage from '@/components/LandingPage/LandingPage.vue'
 
 const routes = [
     {
@@ -26,57 +27,63 @@ const routes = [
     },
     {
         name: 'HomePage',
-        path: '/',
+        path: '/dashboard',
         component: HomePage,
         meta: {guard: true}
     },
     {
         name: 'ClientList',
-        path: '/clients',
+        path: '/dashboard/clients',
         component: ClientList,
         meta: {guard: true}
     },
     {
         name: 'ClientShow',
-        path: '/clients/:id',
+        path: '/dashboard/clients/:id',
         component: ClientShow,
         meta: {guard: true}
     },
     {
         name: 'ClientAdd',
-        path: '/clients/add',
+        path: '/dashboard/clients/add',
         component: ClientAdd,
         meta: {guard: true}
     },
     {
         name: 'ClientUpdate',
-        path: '/clients/update/:id',
+        path: '/dashboard/clients/update/:id',
         component: ClientUpdate,
         meta: {guard: true}
     },
     {
         name: 'ProductList',
-        path: '/products',
+        path: '/dashboard/products',
         component: ProductList,
         meta: {guard: true}
     },
     {
         name: 'ProductShow',
-        path: '/products/:id',
+        path: '/dashboard/products/:id',
         component: ProductShow,
         meta: {guard: true}
     },
     {
         name: 'AddProduct',
-        path: '/products/add',
+        path: '/dashboard/products/add',
         component: AddProduct,
         meta: {guard: true}
     },
     {
         name: 'UpdateProduct',
-        path: '/products/update/:id',
+        path: '/dashboard/products/update/:id',
         component: ProductUpdate,
         meta: {guard: true}
+    },
+    {
+        name: 'LandingPage',
+        path: '/',
+        component: LandingPage,
+        meta: {guard: false}
     }
 ]
 

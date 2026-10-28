@@ -88,7 +88,7 @@ import Swal from 'sweetalert2'
           showConfirmButton: false,
           timer: 1500
         });
-        this.$router.push("/clients");
+        this.$router.push("/dashboard/clients");
 
       }
     }

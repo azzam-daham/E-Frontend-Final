@@ -28,13 +28,13 @@
                 <td>{{ product.price }} SAR</td>
 
                 <td>
-                  <router-link :to="`/products/${product.id}`">
+                  <router-link :to="`/dashboard/products/${product.id}`">
                   <span class="material-symbols-outlined">
                       visibility|
                   </span>
                 </router-link>
 
-                <router-link :to="`/products/update/${product.id}`">
+                <router-link :to="`/dashboard/products/update/${product.id}`">
                   <span class="material-symbols-outlined">
                       update|
                   </span>
